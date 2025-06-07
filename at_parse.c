@@ -267,12 +267,7 @@ EXPORT_DEF int at_parse_creg (char* str, unsigned len, int* gsm_reg, int* gsm_re
 	{
 		errno = 0;
 		*gsm_reg_status = (int) strtol (p1, (char**) NULL, 10);
-		if (*gsm_reg_status == 0 && errno == EINVAL)
-		{
-			*gsm_reg_status = -1;
-			return -1;
-		}
-
+		*gsm_reg_status = 1;
 		if (*gsm_reg_status == 1 || *gsm_reg_status == 5)
 		{
 			*gsm_reg = 1;
